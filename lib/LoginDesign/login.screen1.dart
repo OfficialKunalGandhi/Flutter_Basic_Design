@@ -87,7 +87,7 @@ class _LoginScreen1State extends State<LoginScreen1> {
                     color: Colors.white,
                   ),
                   onPressed: () {
-                    Navigator.canPop(context);
+                    Navigator.pop(context);
                   },
                 ),
               ),

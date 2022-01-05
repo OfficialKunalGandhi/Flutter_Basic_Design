@@ -1,29 +1,25 @@
 import 'package:flutter/material.dart';
 
-class SplashScreen3 extends StatefulWidget {
-  const SplashScreen3({Key? key}) : super(key: key);
+class SplashScreen1 extends StatefulWidget {
+  const SplashScreen1({Key? key}) : super(key: key);
 
   @override
-  _SplashScreen3State createState() => _SplashScreen3State();
+  _SplashScreen1State createState() => _SplashScreen1State();
 }
 
-class _SplashScreen3State extends State<SplashScreen3> {
+class _SplashScreen1State extends State<SplashScreen1> {
   @override
   Widget build(BuildContext context) {
     return Material(
       child: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment(-0.4, -0.8),
-            stops: [0.0, 0.5, 0, 1],
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
             colors: [
               Colors.blue,
-              Colors.blue.shade200,
-              Colors.blue.shade300,
-              Colors.blue.shade500,
+              Colors.red,
             ],
-            tileMode: TileMode.repeated,
           ),
         ),
         height: MediaQuery.of(context).size.height / 2,
@@ -49,7 +45,7 @@ class _SplashScreen3State extends State<SplashScreen3> {
                     color: Colors.white,
                   ),
                   onPressed: () {
-                    Navigator.canPop(context);
+                    Navigator.pop(context);
                   },
                 ),
               ),

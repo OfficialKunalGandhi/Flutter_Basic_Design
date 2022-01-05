@@ -49,7 +49,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
                     color: Colors.white,
                   ),
                   onPressed: () {
-                    Navigator.canPop(context);
+                    Navigator.pop(context);
                   },
                 ),
               ),

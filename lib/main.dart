@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_basic_designs/DesignsList/login.screen.list.dart';
+import 'package:flutter_basic_designs/DesignsList/splash.screen.list.dart';
 import 'package:flutter_basic_designs/LoginDesign/login.screen1.dart';
 import 'package:flutter_basic_designs/LoginDesign/login.screen2.dart';
-import 'package:flutter_basic_designs/SplashScreen/splash.screen1.dart';
-
-import 'SplashScreen/splash.screen2.dart';
-import 'SplashScreen/splash.screen3.dart';
+import 'package:flutter_basic_designs/SignUpDesign/signup.screen1.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,7 +29,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const LoginScreen2(),
+      home: SplashScreenList(),
     );
   }
 }

@@ -1,20 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_basic_designs/TextFeild/text.field1.dart';
 
-class LoginScreen2 extends StatefulWidget {
-  const LoginScreen2({Key? key}) : super(key: key);
+class SignupScreen1 extends StatefulWidget {
+  const SignupScreen1({Key? key}) : super(key: key);
 
   @override
-  _LoginScreen2State createState() => _LoginScreen2State();
+  _SignupScreen1State createState() => _SignupScreen1State();
 }
 
-class _LoginScreen2State extends State<LoginScreen2> {
+class _SignupScreen1State extends State<SignupScreen1> {
+  TextEditingController nameController = TextEditingController();
+  TextEditingController reEnterPasswordController = TextEditingController();
+
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
+    return Material(
+      child: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
@@ -34,7 +38,7 @@ class _LoginScreen2State extends State<LoginScreen2> {
               alignment: Alignment.center,
               child: SizedBox(
                 width: MediaQuery.of(context).size.width / 1.07,
-                height: MediaQuery.of(context).size.height / 1.8,
+                height: MediaQuery.of(context).size.height / 1.5,
                 child: Card(
                   elevation: 9.0,
                   shadowColor: Colors.white,
@@ -51,9 +55,25 @@ class _LoginScreen2State extends State<LoginScreen2> {
                           style: TextStyle(fontSize: 35),
                         ),
                       ),
-                      CustomTextFeild(context, emailController, "Email", false),
-                      CustomTextFeild(
-                          context, passwordController, "Password", true),
+                      TextField1(
+                        controller: nameController,
+                        hint: "Name",
+                        visble: false,
+                      ),
+                      TextField1(
+                        controller: emailController,
+                        hint: "Email",
+                        visble: false,
+                      ),
+                      TextField1(
+                          controller: passwordController,
+                          hint: "Password",
+                          visble: true),
+                      TextField1(
+                        controller: reEnterPasswordController,
+                        hint: "Re-enter Password",
+                        visble: false,
+                      ),
                       Padding(
                         padding: const EdgeInsets.all(18.0),
                         child: TextButton(
@@ -97,21 +117,6 @@ class _LoginScreen2State extends State<LoginScreen2> {
             ),
           ],
         ),
-      ),
-    );
-  }
-
-  Widget CustomTextFeild(BuildContext context, TextEditingController controller,
-      String hint, bool visble) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-      child: TextField(
-        controller: controller,
-        obscureText: visble,
-        decoration: InputDecoration(
-            border: OutlineInputBorder(),
-            contentPadding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-            labelText: hint),
       ),
     );
   }
