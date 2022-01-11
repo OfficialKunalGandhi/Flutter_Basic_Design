@@ -1,35 +1,34 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
-class SplashScreen4 extends StatefulWidget {
-  const SplashScreen4({Key? key}) : super(key: key);
+class SplashScreen7 extends StatefulWidget {
+  const SplashScreen7({Key? key}) : super(key: key);
 
   @override
-  _SplashScreen4State createState() => _SplashScreen4State();
+  _SplashScreen7State createState() => _SplashScreen7State();
 }
 
-class _SplashScreen4State extends State<SplashScreen4> {
+class _SplashScreen7State extends State<SplashScreen7> {
   List<Color> colorList = [
     Colors.teal,
-    Colors.white,
+    Colors.teal.shade100,
     Colors.teal,
     Colors.white,
   ];
-  List<Alignment> alignmentList = [
-    Alignment.bottomLeft,
-    Alignment.bottomRight,
-    Alignment.topRight,
-    Alignment.topLeft,
-  ];
+  List<double> alignmentList = [1.2, 2.1, 2.1, 1.1];
   int index = 0;
-  Color color1 = Colors.teal.shade500;
-  Color color2 = Colors.white;
+  Color color1 = Colors.teal;
+  Color color2 = Colors.teal.shade100;
   Color color3 = Colors.teal;
   Color color4 = Colors.white;
+
+  double? begin = 1.1, end = 2.1;
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    Future.delayed(Duration(seconds: 1)).whenComplete(() => {
+    Future.delayed(Duration(microseconds: 1)).whenComplete(() => {
           setState(() {
             // animate the color
             color3 = colorList[(index + 1) % colorList.length];
@@ -52,20 +51,23 @@ class _SplashScreen4State extends State<SplashScreen4> {
                 color3 = colorList[(index + 1) % colorList.length];
                 print("change");
                 //// animate the alignment
-                // begin = alignmentList[index % alignmentList.length];
-                // end = alignmentList[(index + 2) % alignmentList.length];
+                begin = alignmentList[index % alignmentList.length];
+                end = alignmentList[(index + 2) % alignmentList.length];
               });
             },
             decoration: BoxDecoration(
-              gradient: RadialGradient(
-                // begin: Alignment.topLeft,
-                // end: Alignment(-0.70, -0.8),
+              gradient: SweepGradient(
+                // begin: begin!,
+                // end: end!,
+                startAngle: begin!,
+                endAngle: end!,
+                center: Alignment.bottomLeft,
                 stops: [0.2, 0.1, 1.2, 1.2],
                 colors: [
                   color1,
                   color2,
                   color3,
-                  color3,
+                  color4,
                 ],
                 tileMode: TileMode.mirror,
               ),

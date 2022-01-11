@@ -3,10 +3,20 @@ import 'package:flutter_basic_designs/DesignsList/login.screen.list.dart';
 import 'package:flutter_basic_designs/DesignsList/splash.screen.list.dart';
 import 'package:flutter_basic_designs/LoginDesign/login.screen1.dart';
 import 'package:flutter_basic_designs/LoginDesign/login.screen2.dart';
+import 'package:flutter_basic_designs/LoginDesign/login.screen3.dart';
+import 'package:flutter_basic_designs/Provider/counter.controller.provider.dart';
+import 'package:flutter_basic_designs/Provider/provider.screen.dart';
 import 'package:flutter_basic_designs/SignUpDesign/signup.screen1.dart';
+import 'package:get/get.dart';
+import 'package:provider/provider.dart';
+
+import 'DesignsList/all.items.list.dart';
+import 'GetXProject/get.features.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(
+      providers: [ChangeNotifierProvider(create: (_) => Counter())],
+      child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -15,7 +25,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
@@ -29,7 +39,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: SplashScreenList(),
+      home: AllItemsList(),
     );
   }
 }

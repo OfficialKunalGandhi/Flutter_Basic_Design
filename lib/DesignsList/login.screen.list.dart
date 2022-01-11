@@ -14,9 +14,15 @@ class _LoginScreenListState extends State<LoginScreenList> {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      child: Container(
-          color: Colors.grey,
+    return Scaffold(
+      appBar: AppBar(
+        toolbarHeight: 108.0,
+        title: const Text("Flutter Login Screen",
+            textAlign: TextAlign.center,
+            style: TextStyle(color: Colors.white, fontSize: 30)),
+      ),
+      body: Container(
+          color: Colors.white,
           child: ListView.builder(
               itemCount: loginScreenDesign.length,
               itemBuilder: (context, index) {
@@ -35,6 +41,12 @@ class _LoginScreenListState extends State<LoginScreenList> {
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                         color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.black45,
+                              blurRadius: 0.5,
+                              offset: Offset.fromDirection(0.5))
+                        ],
                         borderRadius: BorderRadius.circular(10),
                         shape: BoxShape.rectangle),
                     child: Text(
